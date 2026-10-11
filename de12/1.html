@@ -1,0 +1,126 @@
+<h1 style="font-size: 30px; margin: 0 0 20px 0;">
+    Gitってなんなんだろう？
+</h1>
+
+ <div style="margin-left: 20%; font-size: 20px; border: 3px solid #050505;">
+    Gitとはズバリ<br>
+    ファイルのバージョンや変更履歴を管理するために使われる、
+    管理システムのこと
+
+ <img src="./images/phot.png"width="40%"><br>
+ 昔はデータを作業員同士が共同で編集をすることが多かった。<br>
+ そのせいで、修正版や更新版などのファイルが増え、「どのファイルを編集すればよいか」わからなくなることがよくあった。 <br>
+ </div>
+ <div style="font-size: 30px; margin-left: 20%;">
+ この問題を解決するため、Gitのシステムが誕生した！ 
+ <div class="image-row"style="margin-top: 30px;">
+   このリポジトリの共有の仕方は二つあり...    
+  <img src="./images/gg.png"  >
+</div> 
+<div style="font-size: 40px;">        
+    　　　　集中型　　　　　　　　分散型  </div>
+ <ul style="margin-top: 30px;">
+    
+       <li>集中管理型は、リポジトリの情報を取得するたびに、ネットワークを介して情報を取得する。(ひとつの*リポジトリにしか情報がないイメージ。)</li> 
+       <li>分散管理型は、リモートだけではなく、ローカルにリポジトリをcopyしておくので、必要な情報をいつでも取得可能としている。 </li>            
+ </ul>   
+
+ <div style="
+    margin-top: 50px;
+    font-size: 40px;
+    border: 3px solid black;
+    padding: 20px;"
+    >
+
+
+Gitはこれら型の中で分散型を採用していて、<br>
+私たちが用いることにより以下のことが可能に
+<ol style="font-size: 20px;">
+                        <li>古いバージョンから新しいバージョンのファイルまで管理できる</li>
+                        <li>簡単に古いバージョンに戻せる</li>
+                        <li>チームでファイルや変更履歴をスムーズに共有できる</li>
+                        <li>豊富な機能を使いチームでの共同開発を効率化できる</li>
+                    </ol>
+ </div>
+<div style="
+    margin-top: 50px;
+    font-size: 40px;
+    border: 3px solid blue;
+    padding: 20px;"
+    >
+Gitを用いる場合のデメリットや注意点は以下の通り
+
+<ol style="font-size: 20px;"
+>
+                        <li>チームでGitを使う場合、基本的には全員がGitを使えるように学習の必要性</li>
+                        <li>特有の概念や操作方法によるハードルの高さ</li>
+                        <li>適切に運用ルールを構築・周知する必要性</li>
+                    </ol>  </div>
+      <div style="font-size: 20px;">        
+     *リポジトリ・・・ファイルを共有するためのデータプールのこと<br>
+     *フェッチ  ・・・リモートリポジトリ（共有先）の最新情報を、ローカルに取得すること<br>
+     *マージ    ・・・別のブランチの変更を、自分のブランチに統合すること<br>
+     *コミット  ・・・自分が行った変更を、ローカルリポジトリに記録すること<br>
+     *プッシュ  ・・・ローカルリポジトリにあるコミットを、リモートリポジトリに送ること<br>
+    </div> 
+ </div>
+<h1 style="
+    font-size: 30px;
+    margin: 50px 0 20px 0;
+    text-align: left;
+    padding: 0;">
+    Htmlってなんなんだろう？
+</h1>
+ <div style="font-size: 20px;margin-left: 20%;">
+    HtmlとはWebページを制作するためのマークアップ言語のこと<br>
+    またマークアップ言語とは、Webページ内のテキスト情報の構成（タイトル・段落など）や役割をコンピュータが構造的に理解できるようにするための言語を意味する。
+ <div style="margin-top: 30px;">
+    Htmlはタグ・要素・属性の3つで構成されており
+</div>
+
+
+ <div style="font-size: 30px;margin-top: 30px;border: 3px solid#FF6B6B;">
+タグ<br>
+タグとは、HTMLの記述に意味を与える印のこと。<br>
+タグによって、コンピュータはテキスト情報を表示する形式が理解できるようになる。
+<img src="./images/スクリーンショット1png"  >
+</div>
+<div style="font-size: 30px;margin-top: 30px; border: 3px solid#FFE66D;">
+要素<br>
+要素（element）とは、Webページを構成するテキスト情報のかたまりを指す用語のこと。<br>
+HTMLではWebページの中身が「head要素」と「body要素」の2つに大別され、
+head要素にはコンピュータ向けの記述、body要素に実際にブラウザ表示させる記述をする。
+<img src="./images/スクリーンショット2.png"  >
+</div>
+<div style="font-size: 30px;margin-top: 30px; border: 3px solid#4ECDC4;">
+属性<br>
+属性（attribute）とは、個々のタグに特定の性質や動作を与える記述のこと。<br>
+下の図のaタグは他ページへのリンクを意味するタグである。そしてどのようなリンクなのか示すため、href属性を追加し、その中でリンク先の指定をする。<br>
+また複数の属性を記述することも可能で、例えばテキスト情報をリンク化させた上で、リンク先の開き方を指定するtarget属性を追加することができます。<br>
+<img src="./images/スクリーンショット 2026-10-11 171039.png"  >
+</div>
+<div style="font-size: 30px;margin-top: 30px;">
+Htmlは何種類かあり
+<ol style="font-size: 20px;">
+                        <li>HTML4・・・古いHTMLの規格。現在は主に歴史的な位置づけ</li>
+                        <li>XHTM・・・HTMLをXMLの厳密なルールに従って書く規格</li>
+                        <li>HTML5・・・画像・動画などの機能が強化された規格。現在のHTMLの基礎</li>
+                        <li>現在のHTML・・・WHATWGがHTML Living Standardとして継続的に更新している</li>
+                    </ol>
+</div>
+<div style="font-size: 30px;margin-top: 30px;">
+最後に簡単にタグの紹介をする
+<ul>
+　タグ　　　役割　　　　主な使い方
+                        <li>h1〜h6　　見出し　　情報を階層的に整理する</li>
+                        <li>p　　　　　段落　　　文章をひとかたまりにする</li>
+                        <li>a　　　　　リン　　　別のページへ移動する</li>
+                        <li>li　　　　リスト　　　項目箇条書きの項目を作る</li>
+                        <li>img	　　　画像	　　　　画像を表示する</li>
+                        <li>table　　　表	　　　情報を表形式で整理する</li>
+                        <li>div　　グループ化　　　要素をまとめて装飾する</li>
+                        <li>strong　重要性の強調　　重要な文章を強調する</li>
+                        <li>style　　CSSの指定　　HTMLのデザインを設定する</li>
+                        <li>hr　　　　水平線　　　　内容の区切りを示す</li>
+                    </ul>   
+</div>
