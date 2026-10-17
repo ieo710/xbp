@@ -21,13 +21,17 @@ logotohome img{
 
 
 /* ========== common ========== */
-html, body {
+html, body {/* 初期画面*/
 	font-size: 16px;
 	font-family: sans-serif;
 	color: #393939;
     margin-left: 15px;
     margin-bottom: 40px;
-	background: #efefef;
+	background-image: url('https://sozaino.site/wp-content/uploads/2022/12/game2206.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: repeat;
+    background-attachment: scroll;
 }
 h1{
     text-indent: 0em;
@@ -48,7 +52,7 @@ p{
 }
 span.blackback{
     text-indent: 3em;
-    background: #393939;
+    background: #02ba64;
     color: #efefef;
 }
 
