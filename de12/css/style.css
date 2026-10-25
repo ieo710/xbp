@@ -28,11 +28,6 @@ html, body {/* デザイン演習押した後の画面 */
     margin: 0;
     margin-bottom: 40px;
 	
-background-image: url(https://sozaino.site/wp-content/uploads/2022/12/game2206.png);
-background-size: 100% auto;
-background-position:  center top;
-background-repeat: repeat-y;
-background-attachment: scroll
 }
 
 h1{

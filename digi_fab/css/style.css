@@ -4,18 +4,17 @@
 @import url('https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:400,700&display=swap&subset=japanese');
 /* フォントを指定したいところで */
 
-logo img{
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover; /* 画像のトリミング */
+.main-visual {/*初期画面のデカ写真*/
+    width: 100%;
+    text-align: center;
 }
 
-logotohome img{
-    border-radius: 70%;
-    width: 70px;
-    height: 70px;
-    object-fit: cover; /* 画像のトリミング */
+.main-visual img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 
@@ -51,4 +50,47 @@ span.blackback{
     background: #393939;
     color: #efefef;
 }
+body.pinset-page 
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+}
 
+body.pinset-page {
+     min-height: 100vh;
+    background-image: url("../../images/スクリーンショット\ 2026-10-23\ 115639.png");
+    background-size: 300px auto;
+    background-position: left top;
+    background-repeat: repeat;
+}
+img {
+    width: 500px;
+    height: auto;
+}
+.work-box {
+    border: 2px solid #173b48;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 50px;
+    text-align: center;
+    background-color: white;
+
+}
+.fusion-icon {
+    position: center;
+    top: 20px;
+    right: 4100px;
+    z-index: 1000;
+}
+
+.fusion-icon img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    display: block;
+/* ドアが並ぶ部分の背景 */
+}
+
+   
