@@ -52,4 +52,90 @@ span.blackback{
     background: #393939;
     color: #efefef;
 }
+/*3.htmlの内容*/
+.top-header {
+    background-color: blue;
+    height: 12.5vh;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+}
 
+.top-header h1 {
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+/*調査のテーマ*/
+.purpose {
+    width: 80%;
+    margin: 50px auto;
+}
+
+.purpose h2 {
+    font-size: 28px;
+    border-bottom: 3px solid #1765B5;
+    padding-bottom: 10px;
+    color:black;
+}
+
+.purpose p {
+    font-size: 17px;
+    line-height: 1.8;
+    color:gray;
+}
+
+.theme {
+    background-color: #F0F3F7;
+    padding: 20px;
+    margin-top: 25px;
+    border-radius: 8px;
+ color: black;
+}
+
+.theme h3 {
+    font-size: 16px;
+    color: #1765B5;
+    margin-top: 0;
+
+}
+/*分析結果*/
+.graph-container {
+    display: flex;
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.analysis-box {
+    background-color: #F0F3F7;
+    padding: 20px;
+    flex: 1;
+    min-width: 0;
+    border-radius: 8px;
+}
+
+.analysis-box h3 {
+    font-size: 18px;
+    color: #1765B5;
+}
+
+.analysis-box img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+}
+
+.analysis-box p {
+    color: gray;
+    font-size: 15px;
+    line-height: 1.8;
+}
+.graph img {
+    width: 100%;
+    height: auto;
+}
+
+.analysis-box > img {
+    width: 100%;
+    height: auto;
+}
