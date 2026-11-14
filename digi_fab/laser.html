@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>イエオ</title>
+  <style>
+ body {
+    background-color: #171717;
+    margin: 0;
+    color: #f0eee8;
+}
+
+
+.program {
+    background-color: #171717;
+    color: white;
+    width: 100%;
+    min-height: 0;
+    box-sizing: border-box;
+    padding: 30px 20px 80px;
+    margin-top: 0;
+}
+
+.program h2 {
+  font-size: 40px;
+  font-weight: normal;
+  margin-bottom: 50px;
+}
+
+.program-items {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  flex-wrap: wrap;
+}
+
+.program-items img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.program-items p {
+  font-size: 24px;
+}
+
+.white-box {
+    background-color: #292929;
+    color: #f0eee8;
+    width: 85%;
+    margin: 40px auto;
+    padding: 45px;
+    border-radius: 5px;
+    border: 1px solid #444;
+
+    display: flex;
+    align-items: center;
+    gap: 35px;
+
+    box-sizing: border-box;
+}
+
+.white-box img {
+    width: 42%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
+    display: block;
+    flex-shrink: 0;
+}
+.white-box p {
+    flex: 1;
+    min-width: 0;
+    font-size: 17px;
+    line-height: 2;
+    color: #dddddd;
+}   
+
+.intro {
+    position: relative;
+    left: 400px;
+    top: -10px;
+    margin: 10px 0 0;
+    color: #222;
+    text-align: left;
+}
+
+.intro h1 {
+    font-size: 52px;
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+}
+
+.intro p {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.intro span {
+    display: inline-block;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 2px solid #333;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+ 
+.main-title {
+    text-align: center;
+    font-size: 45px;
+    color: #f0eee8;
+    background-color: #171717;
+    padding: 35px 20px;
+    margin: 10px 0 0;
+    border-top: 1px solid #777;
+    border-bottom: 3px solid #a34b3d;
+    letter-spacing: 8px;
+}
+/* 制作物全体 */
+.box-content {
+    width: 85%;
+    margin: 40px auto;
+    padding: 45px;
+    background-color: #292929;
+    border: 1px solid #444;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* 画像を2列にする */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* 画像の大きさ */
+.image-grid img {
+    width: 100%;
+    height: 400px;
+    object-fit: contain;
+    display: block;
+}
+
+/* 見出し */
+.box-content h2 {
+    font-size: 25px;
+    color: white;
+    border-left: 4px solid #a34b3d;
+    padding-left: 15px;
+    margin-bottom: 20px;
+}
+
+/* 説明文 */
+.box-content p {
+    font-size: 17px;
+    line-height: 2;
+    color: #dddddd;
+    margin: 0;
+}
+.sketch-box {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.sketch-title {
+    align-self: flex-start;
+    font-size: 26px;
+    color: white;
+    margin: 0 0 30px 0;
+    padding-left: 15px;
+    border-left: 4px solid #a34b3d;
+    letter-spacing: 3px;
+}
+
+.sketch-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+}
+
+.sketch-images img {
+    width: 42%;
+    max-height: 480px;
+    object-fit: contain;
+}
+
+</style>
+</head>
+
+<body>        
+
+<h1 class="main-title">どこでも傘立て</h1>
+
+
+<section class="program">
+
+  <div class="white-box sketch-box">
+
+    <h2 class="sketch-title">SKETCH / スケッチ</h2>
+     <div class="sketch-images">
+    <img src="./images/スケッチ.jpeg" alt="スケッチ">
+    <img src="./images/スケッチ1.jpeg" alt="スケッチ">
+    </div>
+</div>
+
+<div class="box-content">
+    <h2 class="sketch-title">制作物の画像
+    </h2>
+    <div class="image-grid">
+<img src="./images/どこでも傘立て.jpeg" alt="どこでも傘立て">
+<img src="./images/どこでも傘立て1 (1).jpeg" alt="どこでも傘立て">
+<img src="./images/どこでも傘立て2 (1).jpeg" alt="どこでも傘立て">
+<img src="./images/どこでも傘立て3 (1).jpeg" alt="どこでも傘立て">
+    </div>
+<h2>制作物の説明</h2>
+    <p>
+        普通の傘はレストランに行ったときなどの際、持ち手を机のところにかけられる。しかし、折り畳み傘は地面に置かないといけなくなることが多い。しかも時間が経ったら、地面が水浸しになる。
+      今まで放置してしまっていた傘と友達の関係になれるようなものをつくりたいと思った。<br>
+      木の重さのみでは傘の重量を支えられないので、3Dプリントでスマホを置ける台座を作り、その重さで支えられるようにした。なぜスマホなのかというと、
+      外出先ではみんな持っているし、食事をする際にもスマホに気を取られないようにしてほしいからだ。<br>
+      今回のテーマである「関係性のデザイン」 からいうと、傘を気にかけ親密になれると同時に、いつもそばにいるスマホとは関係を断つ。そのような二面性を持たせるように作成した。
+     </p>
+</div>
+
+<div class="white-box">
+
+    <img src="./images/制作物イメージ.png" alt="KAUZO">
+
+    <div class="box-content">
+
+        <h2>なぜ、作ったもので心が動かされるのか</h2>
+
+        <p>それは制作を通して愛着が湧くからだと思う。完成物を購入したわけではなく、わざわざ作っているだからその手間やめんどくささが愛に変わるのだと思う。
+        手料理のように、完成した瞬間に誰かに見せたり、食べてほしくなったするのと同じで、自分で消化するのはもったいないと感じ始める。<br>
+        そして、その作品が誰かの不便を解消したり、新しい発見を与えたり、これまでになかった感情を生み出したりすることもある。
+        こうした心情の働きが連鎖して、心が動かされるのだと思う。
+        </p>
+
+    </div>
+
+</div>
+
+<div class="white-box">
+
+    <div class="box-content">
+<h2>製作を終えて</h2>
+        <p>何とか形にし、機能させるのがやっとで、デザインや耐久性までは追及できなかった。
+            また、重さに耐えさせるためにねじを取り付けてしまったのは禁忌を犯した思う。2度目の製作にしては大きすぎたと思うので、もう少し小さいものからチャレンジするのが大事だと感じた。
+            反省点は多いとはいえ、傘を大事にしている気持ちになるし、店においていれば積極的に使いたくなると私は思う。<br>
+           こういったものがあればな～を形にする喜びは味わえた。
+        </p>
+    </div>
+</div>
+
+<h2>設計データ</h2>
+
+<a href="./files/pink S3.zip" download>
+
+dxfファイルをまとめてダウンロード</a>
+<br>
+
+<a href="./files/箱.stl" download>
+    STLファイルをダウンロード
+</a>
+</section>
+</body>
+</html>
