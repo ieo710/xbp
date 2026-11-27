@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>イエオ</title>
+  <link rel="stylesheet" href="css/style.css">
+  <header class="top-header">
+    <h1>あったらいいなをプログラミングで実現させる</h1>
+</header>
+
+<section class="purpose">
+    <h2>作成しようと思ったプログラミング</h2>
+
+    <p>私たちの班では、今日の具体的な天気や気温、一日のコーデといった「一日の始まり」を意識している人が多いと感じた。
+       加えて私は最近、朝の気分の上げ下げが、日によって著しく違うと感じていた。そこで、自分の今日の気分に対するアドバイスと名言を
+       教えてくれるシステムを作れないかと感じ、制作にあたった。   
+    </p>
+</section>
+
+<section class="analysis">
+    <h2>webやaiで知ったコード</h2>
+
+    <div class="analysis-box">
+        Quotes APIより
+        
+        <p><pre style="background:#FAFAF9;color:#3f3f46;font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace;font-size:13px;line-height:1.7;padding:16px 18px;margin:0;border-radius:4px;overflow-x:auto;white-space:pre;tab-size:4;-moz-tab-size:4;"><code style="font-family:inherit;background:none;padding:0;"><span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">1</span><span style="color:#8a8a94;font-style:italic;"># pip install requests</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">2</span><span style="color:#0f766e;">import</span> requests
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">3</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">4</span>response <span style="color:#71717a;">=</span> requests<span style="color:#a1a1aa;">.</span>get<span style="color:#a1a1aa;">(</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">5</span>    <span style="color:#7B2CBF;">"https://api.api-ninjas.com/v2/quotes?categories=success,wisdom"</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">6</span>    headers<span style="color:#71717a;">=</span><span style="color:#a1a1aa;">{</span><span style="color:#7B2CBF;">'X-Api-Key'</span><span style="color:#a1a1aa;">:</span> <span style="color:#7B2CBF;">''</span><span style="color:#a1a1aa;">}</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">7</span>    timeout<span style="color:#71717a;">=</span><span style="color:#a16207;">30</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">8</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">9</span>response<span style="color:#a1a1aa;">.</span>raise_for_status<span style="color:#a1a1aa;">(</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">10</span><span style="color:#0f766e;">print</span><span style="color:#a1a1aa;">(</span>response<span style="color:#a1a1aa;">.</span>json<span style="color:#a1a1aa;">(</span><span style="color:#a1a1aa;">)</span><span style="color:#a1a1aa;">)</span></code></pre>
+        </p>   
+<div style="margin-top: 30px;">
+Chat GPTより
+roleは誰からのメッセージなのかを示す　contentはそのメッセージの内容を示す。<br>
+role は今回2種類使っていて、system → AIの役割を指定する　 user → 人間が入力した内容をAIに渡す
+<p>
+    <pre style="background:#FAFAF9;color:#3f3f46;font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace;font-size:13px;line-height:1.7;padding:16px 18px;margin:0;border-radius:4px;overflow-x:auto;white-space:pre;tab-size:4;-moz-tab-size:4;"><code style="font-family:inherit;background:none;padding:0;"><span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">1</span>response = client.chat.completions.create(
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">2</span>    model="gpt-6-luna",
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">3</span>    messages=[
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">4</span>        {"role": "system", "content": "あなたは人の気持ちに寄り添い、今日一日のアドバイスを提供するアシスタントです。"},
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">5</span>        {"role": "user", "content": mood}
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">6</span>    ]
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">7</span>)
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">8</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">9</span>advice = response.choices[0].message.content
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">10</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">11</span>print("\n今日のアドバイス：")
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">12</span>print(advice)</code></pre>
+</p>
+</div>
+</div>
+</section>
+
+<section class="analysis">
+    <div class="graph-container">
+        <div class="analysis-box">
+            <h3>プログラムの説明</h3>
+<p>
+<pre style="background:#FAFAF9;color:#3f3f46;font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Courier New', monospace;font-size:13px;line-height:1.7;padding:16px 18px;margin:0;border-radius:4px;overflow-x:auto;white-space:pre;tab-size:4;-moz-tab-size:4;"><code style="font-family:inherit;background:none;padding:0;"><span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">1</span><span style="color:#0f766e;">from</span> openai <span style="color:#0f766e;">import</span> OpenAI
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">2</span><span style="color:#0f766e;">import</span> requests<span style="color:#8a8a94;font-style:italic;">#importが二つあるのは最初に両方のAPIを使うための道具を用意している</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">3</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">4</span>client <span style="color:#71717a;">=</span> OpenAI<span style="color:#a1a1aa;">(</span>api_key<span style="color:#71717a;">=</span><span style="color:#7B2CBF;">"ChatGPTのapi"</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">5</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">6</span>mood <span style="color:#71717a;">=</span> <span style="color:#0f766e;">input</span><span style="color:#a1a1aa;">(</span><span style="color:#7B2CBF;">"今日の気分を入力してください："</span><span style="color:#a1a1aa;">)</span><span style="color:#8a8a94;font-style:italic;">#打ってもらった気分をmoodの変数に変換してる</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">7</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">8</span>response <span style="color:#71717a;">=</span> client<span style="color:#a1a1aa;">.</span>chat<span style="color:#a1a1aa;">.</span>completions<span style="color:#a1a1aa;">.</span>create<span style="color:#a1a1aa;">(</span><span style="color:#8a8a94;font-style:italic;">#apiへ指示を送っている</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">9</span>    model<span style="color:#71717a;">=</span><span style="color:#7B2CBF;">"gpt-6-luna"</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">10</span>    messages<span style="color:#71717a;">=</span><span style="color:#a1a1aa;">[</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">11</span>         <span style="color:#8a8a94;font-style:italic;">#roleは誰からのメッセージなのかを示す　contetはそのメッセージの内容。roleは二つに分けられてsystem → AIの役割や振る舞いを指定する　user → 人間が入力した内容をAIに渡す これをすることで、人間のコメントに対して    aiがただ返答するのではなく、人にアドバイスを送るという信念をもって返答してくれる      </span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">12</span>        <span style="color:#a1a1aa;">{</span><span style="color:#7B2CBF;">"role"</span><span style="color:#a1a1aa;">:</span> <span style="color:#7B2CBF;">"system"</span><span style="color:#a1a1aa;">,</span> <span style="color:#7B2CBF;">"content"</span><span style="color:#a1a1aa;">:</span> <span style="color:#7B2CBF;">"あなたは人の気持ちに寄り添い、今日一日のアドバイスを提供するアシスタントです。"</span><span style="color:#a1a1aa;">}</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">13</span>        <span style="color:#a1a1aa;">{</span><span style="color:#7B2CBF;">"role"</span><span style="color:#a1a1aa;">:</span> <span style="color:#7B2CBF;">"user"</span><span style="color:#a1a1aa;">,</span> <span style="color:#7B2CBF;">"content"</span><span style="color:#a1a1aa;">:</span> mood<span style="color:#a1a1aa;">}</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">14</span>    <span style="color:#a1a1aa;">]</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">15</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">16</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">17</span><span style="color:#8a8a94;font-style:italic;">#AIから返ってきたデータの中から、実際の文章だけを取り出して advice という変数に保存する。</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">18</span>advice <span style="color:#71717a;">=</span> response<span style="color:#a1a1aa;">.</span>choices<span style="color:#a1a1aa;">[</span><span style="color:#a16207;">0</span><span style="color:#a1a1aa;">]</span><span style="color:#a1a1aa;">.</span>message<span style="color:#a1a1aa;">.</span>content
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">19</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">20</span>quotes <span style="color:#71717a;">=</span> <span style="color:#a1a1aa;">[</span><span style="color:#a1a1aa;">]</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">21</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">22</span><span style="color:#8a8a94;font-style:italic;">#for_in~でquoteを5回繰り返し、上記の[]でリストを作る。</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">23</span><span style="color:#0f766e;">for</span> _ <span style="color:#0f766e;">in</span> <span style="color:#0f766e;">range</span><span style="color:#a1a1aa;">(</span><span style="color:#a16207;">5</span><span style="color:#a1a1aa;">)</span><span style="color:#a1a1aa;">:</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">24</span>    quote_response <span style="color:#71717a;">=</span> requests<span style="color:#a1a1aa;">.</span>get<span style="color:#a1a1aa;">(</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">25</span>        <span style="color:#7B2CBF;">"https://api.api-ninjas.com/v2/randomquotes?categories=success,wisdom"</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">26</span>        headers<span style="color:#71717a;">=</span><span style="color:#a1a1aa;">{</span><span style="color:#7B2CBF;">"X-Api-Key"</span><span style="color:#a1a1aa;">:</span> <span style="color:#7B2CBF;">"quoteのapi"</span><span style="color:#a1a1aa;">}</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">27</span>        timeout<span style="color:#71717a;">=</span><span style="color:#a16207;">30</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">28</span>    <span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">29</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">30</span>    quote_response<span style="color:#a1a1aa;">.</span>raise_for_status<span style="color:#a1a1aa;">(</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">31</span>    <span style="color:#8a8a94;font-style:italic;">#エラーを処理するときにjsonを使う</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">32</span>    quote_data <span style="color:#71717a;">=</span> quote_response<span style="color:#a1a1aa;">.</span>json<span style="color:#a1a1aa;">(</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">33</span>    <span style="color:#8a8a94;font-style:italic;">#append()は上記で作ったリストにデータをぶち込む</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">34</span>    quotes<span style="color:#a1a1aa;">.</span>append<span style="color:#a1a1aa;">(</span>quote_data<span style="color:#a1a1aa;">[</span><span style="color:#a16207;">0</span><span style="color:#a1a1aa;">]</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">35</span>    
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">36</span>    quote_candidates <span style="color:#71717a;">=</span> <span style="color:#7B2CBF;">""</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">37</span><span style="color:#8a8a94;font-style:italic;">#iは名言に番号pはその番号に対応する名言の辞書</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">38</span><span style="color:#0f766e;">for</span> i<span style="color:#a1a1aa;">,</span> q <span style="color:#0f766e;">in</span> <span style="color:#0f766e;">enumerate</span><span style="color:#a1a1aa;">(</span>quotes<span style="color:#a1a1aa;">,</span> <span style="color:#a16207;">1</span><span style="color:#a1a1aa;">)</span><span style="color:#a1a1aa;">:</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">39</span>    <span style="color:#8a8a94;font-style:italic;">#candidatesは上の作業で番号を付けた文章を羅列する</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">40</span>    quote_candidates <span style="color:#71717a;">+=</span> <span><span style="color:#7B2CBF;">f"</span><span><span style="color:#a1a1aa;">{</span>i<span style="color:#a1a1aa;">}</span></span><span style="color:#7B2CBF;">. </span><span><span style="color:#a1a1aa;">{</span>q<span style="color:#a1a1aa;">[</span><span style="color:#7B2CBF;">'quote'</span><span style="color:#a1a1aa;">]</span><span style="color:#a1a1aa;">}</span></span><span style="color:#7B2CBF;"> (作者: </span><span><span style="color:#a1a1aa;">{</span>q<span style="color:#a1a1aa;">[</span><span style="color:#7B2CBF;">'author'</span><span style="color:#a1a1aa;">]</span><span style="color:#a1a1aa;">}</span></span><span style="color:#7B2CBF;">)\n"</span></span><span style="color:#8a8a94;font-style:italic;">#\nは改行</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">41</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">42</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">43</span>selection_response <span style="color:#71717a;">=</span> client<span style="color:#a1a1aa;">.</span>chat<span style="color:#a1a1aa;">.</span>completions<span style="color:#a1a1aa;">.</span>create<span style="color:#a1a1aa;">(</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">44</span>    model<span style="color:#71717a;">=</span><span style="color:#7B2CBF;">"gpt-6-luna"</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">45</span>    messages<span style="color:#71717a;">=</span><span style="color:#a1a1aa;">[</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">46</span>        <span style="color:#a1a1aa;">{</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">47</span>            <span style="color:#7B2CBF;">"role"</span><span style="color:#a1a1aa;">:</span> <span style="color:#7B2CBF;">"system"</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">48</span>            <span style="color:#7B2CBF;">"content"</span><span style="color:#a1a1aa;">:</span> <span style="color:#7B2CBF;">"ユーザーの気分を理解し、候補の名言から最も気分に合うものを1つ選んでください。名言の英文と作者をそのまま出力してください。理由や解説は不要です。出力形式は名言の英文、改行、作者名の順にしてください。"</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">49</span>        <span style="color:#a1a1aa;">}</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">50</span>        <span style="color:#a1a1aa;">{</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">51</span>            <span style="color:#7B2CBF;">"role"</span><span style="color:#a1a1aa;">:</span> <span style="color:#7B2CBF;">"user"</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">52</span>            <span style="color:#8a8a94;font-style:italic;">#moodで人間の気分、candidatesは上記でまとめた名言をaiに渡す</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">53</span>            <span style="color:#7B2CBF;">"content"</span><span style="color:#a1a1aa;">:</span> <span><span style="color:#7B2CBF;">f"今日の気分：</span><span><span style="color:#a1a1aa;">{</span>mood<span style="color:#a1a1aa;">}</span></span><span style="color:#7B2CBF;">\n\n候補の名言：\n</span><span><span style="color:#a1a1aa;">{</span>quote_candidates<span style="color:#a1a1aa;">}</span></span><span style="color:#7B2CBF;">"</span></span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">54</span>        <span style="color:#a1a1aa;">}</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">55</span>    <span style="color:#a1a1aa;">]</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">56</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">57</span><span style="color:#8a8a94;font-style:italic;">#aiが選択した名言を受け取る</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">58</span>selected_quote <span style="color:#71717a;">=</span> selection_response<span style="color:#a1a1aa;">.</span>choices<span style="color:#a1a1aa;">[</span><span style="color:#a16207;">0</span><span style="color:#a1a1aa;">]</span><span style="color:#a1a1aa;">.</span>message<span style="color:#a1a1aa;">.</span>content
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">59</span><span style="color:#8a8a94;font-style:italic;">#選ばれた名言と作者を保存する</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">60</span>selected_lines <span style="color:#71717a;">=</span> selected_quote<span style="color:#a1a1aa;">.</span>split<span style="color:#a1a1aa;">(</span><span style="color:#7B2CBF;">"\n"</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">61</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">62</span><span style="color:#8a8a94;font-style:italic;">#リストの0番（名言の英文）をquoteに</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">63</span>quote <span style="color:#71717a;">=</span> selected_lines<span style="color:#a1a1aa;">[</span><span style="color:#a16207;">0</span><span style="color:#a1a1aa;">]</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">64</span><span style="color:#8a8a94;font-style:italic;">#リストの一番（作者の情報）をauthorに　replaceは("a","b")aをbに変換する役割　今回は[1]の中にある"作者"の文字を消す　stripは先頭に空白ができたらそれを消す</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">65</span>author <span style="color:#71717a;">=</span> selected_lines<span style="color:#a1a1aa;">[</span><span style="color:#a16207;">1</span><span style="color:#a1a1aa;">]</span><span style="color:#a1a1aa;">.</span>replace<span style="color:#a1a1aa;">(</span><span style="color:#7B2CBF;">"作者:"</span><span style="color:#a1a1aa;">,</span> <span style="color:#7B2CBF;">""</span><span style="color:#a1a1aa;">)</span><span style="color:#a1a1aa;">.</span>strip<span style="color:#a1a1aa;">(</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">66</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">67</span>selected_quote <span style="color:#71717a;">=</span> selection_response<span style="color:#a1a1aa;">.</span>choices<span style="color:#a1a1aa;">[</span><span style="color:#a16207;">0</span><span style="color:#a1a1aa;">]</span><span style="color:#a1a1aa;">.</span>message<span style="color:#a1a1aa;">.</span>content
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">68</span>translation_response <span style="color:#71717a;">=</span> client<span style="color:#a1a1aa;">.</span>chat<span style="color:#a1a1aa;">.</span>completions<span style="color:#a1a1aa;">.</span>create<span style="color:#a1a1aa;">(</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">69</span>    model<span style="color:#71717a;">=</span><span style="color:#7B2CBF;">"gpt-6-luna"</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">70</span>    messages<span style="color:#71717a;">=</span><span style="color:#a1a1aa;">[</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">71</span>        <span style="color:#a1a1aa;">{</span><span style="color:#7B2CBF;">"role"</span><span style="color:#a1a1aa;">:</span> <span style="color:#7B2CBF;">"system"</span><span style="color:#a1a1aa;">,</span> <span style="color:#7B2CBF;">"content"</span><span style="color:#a1a1aa;">:</span> <span style="color:#7B2CBF;">"あなたは翻訳者です。入力された英文を自然な日本語に翻訳してください。翻訳結果だけを出力してください。"</span><span style="color:#a1a1aa;">}</span><span style="color:#a1a1aa;">,</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">72</span>        <span style="color:#8a8a94;font-style:italic;">#以前は mood を渡していたけど、今回は quote を渡している。つまり、ChatGPTに「今日の気分」ではなく、「取得した英語の名言」を翻訳対象として渡している</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">73</span>        <span style="color:#a1a1aa;">{</span><span style="color:#7B2CBF;">"role"</span><span style="color:#a1a1aa;">:</span> <span style="color:#7B2CBF;">"user"</span><span style="color:#a1a1aa;">,</span> <span style="color:#7B2CBF;">"content"</span><span style="color:#a1a1aa;">:</span> quote<span style="color:#a1a1aa;">}</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">74</span>    <span style="color:#a1a1aa;">]</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">75</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">76</span><span style="color:#8a8a94;font-style:italic;">#日本が訳された結果を取り出す</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">77</span>translated_quote <span style="color:#71717a;">=</span> translation_response<span style="color:#a1a1aa;">.</span>choices<span style="color:#a1a1aa;">[</span><span style="color:#a16207;">0</span><span style="color:#a1a1aa;">]</span><span style="color:#a1a1aa;">.</span>message<span style="color:#a1a1aa;">.</span>content
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">78</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">79</span><span style="color:#8a8a94;font-style:italic;">#advice → ChatGPT APIから受け取ったアドバイス quote → 名言APIから受け取った言葉 author → 名言APIから受け取った作者</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">80</span><span style="color:#8a8a94;font-style:italic;">#print("==============================")ただ見やすくするための装飾品</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">81</span><span style="color:#0f766e;">print</span><span style="color:#a1a1aa;">(</span><span style="color:#7B2CBF;">"\n=============================="</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">82</span><span style="color:#0f766e;">print</span><span style="color:#a1a1aa;">(</span><span style="color:#7B2CBF;">"今日のアドバイス"</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">83</span><span style="color:#0f766e;">print</span><span style="color:#a1a1aa;">(</span><span style="color:#7B2CBF;">"=============================="</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">84</span><span style="color:#0f766e;">print</span><span style="color:#a1a1aa;">(</span>advice<span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">85</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">86</span><span style="color:#0f766e;">print</span><span style="color:#a1a1aa;">(</span><span style="color:#7B2CBF;">"\n今日の言葉"</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">87</span><span style="color:#0f766e;">print</span><span style="color:#a1a1aa;">(</span><span style="color:#7B2CBF;">"------------------------------"</span><span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">88</span><span style="color:#0f766e;">print</span><span style="color:#a1a1aa;">(</span>quote<span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">89</span><span style="color:#0f766e;">print</span><span style="color:#a1a1aa;">(</span><span style="color:#7B2CBF;">"作者:"</span><span style="color:#a1a1aa;">,</span> author<span style="color:#a1a1aa;">)</span>
+<span style="display:inline-block;width:3em;margin-right:1em;padding-right:0.8em;text-align:right;color:#c4c4cb;border-right:1px solid #e4e4e7;user-select:none;-webkit-user-select:none;">90</span><span style="color:#0f766e;">print</span><span style="color:#a1a1aa;">(</span><span style="color:#7B2CBF;">"日本語訳:"</span><span style="color:#a1a1aa;">,</span> translated_quote<span style="color:#a1a1aa;">)</span></code></pre>
+</p>
+
+
+ <div font-corol:black>  
+全体の流れとしては、人間が今日の気分を打ち込む<br>
+　　　　　　　　　　　　　　　　↓<br>
+　　　　　　　　　　Chat GPTが今日一日のアドバイスをくれる<br>
+　　　　　　　　　　　　　　　　↓<br>
+　　　　　　　　　　aiが名言集のホームページからその日にぴったりな言葉を提示してくれる<br>
+aiに"role": "system"を用いて役割を固定化し、毎回適切なアドバイスが送れるようにした。名言は、ランダムに表示されてしまうと今日の気分に適していないことが多くなってしまう。
+なのでquoteのapi側に5つ名言を取りだすよう設定し、選ばれた5つの中から、"role":"system"でaiが今のmoodに適した名言を抽出するようにした。しかし、取り出した名言は英語で表示されてしまったため、またもや"role":"system"でaiの役割を和訳者に固定化し、日本語で表示させるようにした。
+最後に、これらの過程で設定されたadvice,author,translated_quoteをprintを用いて表示させた。
+ </div> 
+        </div>
+    </section>
+<section class="analysis">
+    <div class="graph-container">
+
+        <div class="analysis-box">
+            <h3>プログラムの実行</h3>
+          <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/ZCFEDUIAHsw"
+    title="プログラムの実行"
+    allowfullscreen>
+</iframe>
+        </div>
+ <div class="references">
+    <h2>参考資料</h2>
+    <p>本ページの制作にあたり、以下のWebサイトを参考にしました。</p>
+
+    <ul>
+        <li>
+            <a href="https://api.api-ninjas.com/v2/quotes?categories=success%2Cwisdom" target="_blank">
+               API ninjas
+            </a>
+            — 名言を提示してくれるapiの使用例
+        </li>
+    </ul>
+
+    <ul>
+        <li>
+            <a href="https://www.sejuku.net/blog/22902" target="_blank">
+               侍エンジニア
+            </a>
+            — enumerate関数とfor文
+        </li>
+    </ul>
+</div>       
+
+</section>
